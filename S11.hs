@@ -1,6 +1,10 @@
 module S11  where
 import Matrix
-import S8
+takes ::Int->[a]->[[a]]
+takes n [] = []
+takes n xs
+  | length xs >= n      =   [take n xs] ++ takes n (tail xs)
+  | otherwise           =   []
 
 main = print s11
 
