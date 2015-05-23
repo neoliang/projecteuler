@@ -1,5 +1,5 @@
 module S8 where
-import Char
+import Data.Char
 
 main = print s8
 
@@ -10,8 +10,8 @@ longNumbers =  map (toInteger.digitToInt) longNumberstring
 takes ::Int->[a]->[[a]]
 takes n [] = []
 takes n xs
-  | length xs >= n 			= 	[take n xs] ++ takes n (tail xs)
-  | otherwise 					= 	[]
+  | length xs >= n      =   [take n xs] ++ takes n (tail xs)
+  | otherwise           =   []
 
 
 s8 = maximum . map product . takes 13 $ longNumbers 
