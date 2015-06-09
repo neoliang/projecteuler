@@ -33,6 +33,7 @@ main = print s15
 
 
 
+
 --path length iterate 
 pathMatrix:: Int -> [[Integer]]
 
@@ -45,3 +46,16 @@ pathMatrix n =  reverse $ foldl gencols [] (replicate (n+1) 1) where
 pathLength' n = last.last $ pathMatrix n 
 
 s15 = pathLength' 20
+
+
+--another iterate version
+pathMatrix':: Int -> [[Integer]]
+
+pathMatrix' n =  take (n+1) $ iterate nextRow $ replicate (n+1) 1 where
+  nextRow rs = reverse $ foldl genRow [] rs
+  genRow cs c
+    | null cs = c:cs
+    | otherwise = head cs + c : cs
+--s15 = last.last $pathMatrix' 20
+
+
