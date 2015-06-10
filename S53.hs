@@ -1,7 +1,7 @@
 module Main where
 import Data.List(sort,group)
 
-main = putStrLn "Hello World"
+main = print s53
 
 combo n r = (factor n) `div` ( factor r * factor (n-r)) where 
   factor n = product[1..n]
